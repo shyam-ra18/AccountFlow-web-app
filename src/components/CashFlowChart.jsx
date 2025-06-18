@@ -11,7 +11,6 @@ import {
 import { FiArrowDownCircle, FiArrowUpCircle, FiTrendingUp, FiTrendingDown } from 'react-icons/fi';
 import { cashFlowData } from '../utils/constant';
 
-
 const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
         const data = payload[0].payload;
@@ -57,7 +56,6 @@ const CustomTooltip = ({ active, payload, label }) => {
     return null;
 };
 
-
 const CashFlowChart = () => {
     const totalIncoming = 12538.29;
     const totalOutgoing = 12358.12;
@@ -65,8 +63,8 @@ const CashFlowChart = () => {
     const closingBalance = 15933.67;
 
     return (
-        <div className="bg-white/80 backdrop-blur-md rounded-2xl border border-gray-200/50 p-5 shadow-lg">
-            <div className="flex justify-between items-start ">
+        <div className="bg-white/80 backdrop-blur-md rounded-2xl border border-gray-200/50 p-4 md:p-5 shadow-lg">
+            <div className="flex flex-col md:flex-col lg:flex-row justify-between items-start gap-4 md:gap-0">
                 {/* Left: Title */}
                 <div className="space-y-1">
                     <h3 className="text-lg font-semibold text-gray-900 flex items-center space-x-2">
@@ -76,60 +74,61 @@ const CashFlowChart = () => {
                     <p className="text-gray-600 text-xs">Financial year cash flow analysis</p>
                 </div>
 
-                {/* Right: Summary */}
-                <div className="grid grid-cols-4 gap-3 text-xs min-w-[250px]">
-                    {/* Opening Balance */}
-                    <div className="flex justify-between items-center gap-2 bg-white/70 backdrop-blur-sm rounded-md px-3 py-2 shadow-sm border border-gray-200 hover:shadow-md transition">
-                        <span className="text-gray-600 flex items-center space-x-1">
-                            <FiTrendingUp className="text-gray-400" />
-                            <span>Opening</span>
-                        </span>
-                        <span className="font-semibold text-gray-800 bg-gray-100 rounded px-2 py-0.5">
-                            ₹{openingBalance.toLocaleString()}
-                        </span>
-                    </div>
+                {/* Right: Summary - Responsive layout */}
+                <div className="w-full md:w-auto">
+                    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-3">
+                        {/* Opening Balance */}
+                        <div className="flex justify-between items-center gap-1 bg-white/70 backdrop-blur-sm rounded-md px-2 py-1 md:px-3 md:py-2 shadow-sm border border-gray-200 hover:shadow-md transition text-xs md:text-xs">
+                            <span className="text-gray-600 flex items-center space-x-1 truncate">
+                                <FiTrendingUp className="text-gray-400 hidden md:block" />
+                                <span>Opening</span>
+                            </span>
+                            <span className="font-semibold text-gray-800 bg-gray-100 rounded px-1 py-0.5 md:px-2 md:py-0.5 truncate">
+                                ₹{openingBalance.toLocaleString(undefined, { maximumFractionDigits: 0 })}
+                            </span>
+                        </div>
 
-                    {/* Incoming */}
-                    <div className="flex justify-between items-center gap-2 bg-green-50/60 rounded-md px-3 py-2 shadow-sm border border-green-100 hover:shadow-md transition">
-                        <span className="text-green-700 flex items-center space-x-1">
-                            <FiArrowDownCircle className="text-green-500" />
-                            <span>Incoming</span>
-                        </span>
-                        <span className="font-semibold text-green-800 bg-green-100 rounded px-2 py-0.5">
-                            ₹{totalIncoming.toLocaleString()}
-                        </span>
-                    </div>
+                        {/* Incoming */}
+                        <div className="flex justify-between items-center gap-1 bg-green-50/60 rounded-md px-2 py-1 md:px-3 md:py-2 shadow-sm border border-green-100 hover:shadow-md transition text-xs md:text-xs">
+                            <span className="text-green-700 flex items-center space-x-1 truncate">
+                                <FiArrowDownCircle className="text-green-500 hidden md:block" />
+                                <span>Incoming</span>
+                            </span>
+                            <span className="font-semibold text-green-800 bg-green-100 rounded px-1 py-0.5 md:px-2 md:py-0.5 truncate">
+                                ₹{totalIncoming.toLocaleString(undefined, { maximumFractionDigits: 0 })}
+                            </span>
+                        </div>
 
-                    {/* Outgoing */}
-                    <div className="flex justify-between items-center gap-2 bg-red-50/60 rounded-md px-3 py-2 shadow-sm border border-red-100 hover:shadow-md transition">
-                        <span className="text-red-700 flex items-center space-x-1">
-                            <FiArrowUpCircle className="text-red-500" />
-                            <span>Outgoing</span>
-                        </span>
-                        <span className="font-semibold text-red-800 bg-red-100 rounded px-2 py-0.5">
-                            ₹{totalOutgoing.toLocaleString()}
-                        </span>
-                    </div>
+                        {/* Outgoing */}
+                        <div className="flex justify-between items-center gap-1 bg-red-50/60 rounded-md px-2 py-1 md:px-3 md:py-2 shadow-sm border border-red-100 hover:shadow-md transition text-xs md:text-xs">
+                            <span className="text-red-700 flex items-center space-x-1 truncate">
+                                <FiArrowUpCircle className="text-red-500 hidden md:block" />
+                                <span>Outgoing</span>
+                            </span>
+                            <span className="font-semibold text-red-800 bg-red-100 rounded px-1 py-0.5 md:px-2 md:py-0.5 truncate">
+                                ₹{totalOutgoing.toLocaleString(undefined, { maximumFractionDigits: 0 })}
+                            </span>
+                        </div>
 
-                    {/* Closing Balance */}
-                    <div className="flex justify-between items-center gap-2 bg-blue-50/60 rounded-md px-3 py-2 shadow-md border border-blue-100">
-                        <span className="text-blue-800 font-medium flex items-center space-x-1">
-                            <FiTrendingDown className="text-blue-600" />
-                            <span>Closing</span>
-                        </span>
-                        <span className="font-bold text-blue-900 bg-blue-100 rounded px-2 py-0.5">
-                            ₹{closingBalance.toLocaleString()}
-                        </span>
+                        {/* Closing Balance */}
+                        <div className="flex justify-between items-center gap-1 bg-blue-50/60 rounded-md px-2 py-1 md:px-3 md:py-2 shadow-md border border-blue-100 text-xs md:text-xs">
+                            <span className="text-blue-800 font-medium flex items-center space-x-1 truncate">
+                                <FiTrendingDown className="text-blue-600 hidden md:block" />
+                                <span>Closing</span>
+                            </span>
+                            <span className="font-bold text-blue-900 bg-blue-100 rounded px-1 py-0.5 md:px-2 md:py-0.5 truncate">
+                                ₹{closingBalance.toLocaleString(undefined, { maximumFractionDigits: 0 })}
+                            </span>
+                        </div>
                     </div>
                 </div>
-
             </div>
 
-            <div className="h-80">
+            <div className="h-60 md:h-80 mt-4">
                 <ResponsiveContainer width="100%" height="100%">
                     <ComposedChart
                         data={cashFlowData}
-                        margin={{ top: 20, right: 30, left: 20, bottom: 20 }}
+                        margin={{ top: 5, right: 5, left: 5, bottom: 5 }}
                     >
                         <defs>
                             {/* Closing Gradient (Blue) */}
@@ -236,10 +235,8 @@ const CashFlowChart = () => {
                         />
                     </ComposedChart>
                 </ResponsiveContainer>
-
             </div>
         </div>
-
     );
 };
 

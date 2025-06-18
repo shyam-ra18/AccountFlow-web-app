@@ -8,7 +8,7 @@ import NotFoundPage from './pages/NotFoundPage';
 import UserDetails from './pages/UserDetails';
 
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
+  <BrowserRouter basename='/accounting' >
     <Routes>
       <Route path="/" element={<Login />} />
       <Route path="/user-detail" element={<UserDetails />} />

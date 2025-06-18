@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FaRegEnvelopeOpen } from 'react-icons/fa';
+import { FiX } from 'react-icons/fi';
 import {
     MdAccountBalanceWallet,
     MdAddBox,
@@ -16,7 +17,7 @@ import {
 } from 'react-icons/md';
 import { Link, useLocation } from 'react-router-dom';
 
-const Sidebar = () => {
+const Sidebar = ({ closeSidebar }) => {
     const location = useLocation();
     const [active, setActive] = useState(location.pathname);
 
@@ -51,7 +52,7 @@ const Sidebar = () => {
 
     return (
         <aside
-            className="bg-white border-r border-gray-200 text-slate-900 h-screen p-4 sticky top-0 overflow-y-auto shadow-sm"
+            className="bg-white h-full p-4 overflow-y-auto relative pb-20 md:pb-0"
             style={{ scrollbarWidth: 'thin', scrollbarColor: '#f2f2f2 #ffffff' }}
         >
 
@@ -91,7 +92,7 @@ const Sidebar = () => {
                     <SidebarItem to="/dashboard/notifications" label="Notifications" icon={<MdNotifications />} />
                     <SidebarItem to="/dashboard/settings" label="Settings" icon={<MdSettings />} />
                     <SidebarItem to="/dashboard/discounts" label="Discount Codes" icon={<MdLocalOffer />} />
-                    <SidebarItem to="/" label="Logout" icon={<MdLogout />} />
+                    <SidebarItem to="/accounting" label="Logout" icon={<MdLogout />} />
                 </SidebarMenu>
             </nav>
 

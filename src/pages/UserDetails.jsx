@@ -1,9 +1,7 @@
 import AuthUserBanner from '../components/AuthUserBanner';
 import AuthUserData from '../components/AuthUserData';
 
-
 const UserDetails = () => {
-
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50/30 to-indigo-50/50 relative overflow-hidden flex items-center justify-center">
             {/* Decorative Background Blobs */}
@@ -18,9 +16,14 @@ const UserDetails = () => {
             <div className="relative z-10 h-[70vh] flex items-center justify-center p-4">
                 <div className="w-full max-w-6xl">
                     <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
-                        <div className="grid lg:grid-cols-2 max-h-[600px]">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 max-h-[600px]">
+                            {/* Always show AuthUserData */}
                             <AuthUserData />
-                            <AuthUserBanner />
+
+                            {/* Only show AuthUserBanner on lg screens and larger */}
+                            <div className="hidden lg:block">
+                                <AuthUserBanner />
+                            </div>
                         </div>
                     </div>
                 </div>

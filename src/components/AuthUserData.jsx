@@ -36,7 +36,7 @@ const AuthUserData = () => {
 
             <div className="my-5">
                 <h1 className="text-3xl font-bold text-gray-900 mb-2">Welcome</h1>
-                <p className="text-gray-600">Set up your profile to continue</p>
+                <p className="text-gray-600">Set up your company name and financial year</p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -46,7 +46,7 @@ const AuthUserData = () => {
                         type="text"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
-                        placeholder="Enter your name"
+                        placeholder="Enter your company name"
                         className={`w-full px-4 py-4 border border-gray-200  rounded-xl bg-gray-50 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:bg-white transition-all duration-200`}
                     />
                     <FaUserAlt className="absolute right-5 top-1/2 transform -translate-y-1/2 text-gray-400 text-base" />

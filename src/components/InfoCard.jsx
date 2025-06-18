@@ -8,7 +8,7 @@ const InfoCard = ({
     trend,
 }) => {
     return (
-        <div className="group relative overflow-hidden rounded-xl min-w-[180px] max-w-[220px] bg-gradient-to-br from-blue-400 to-indigo-500 shadow-sm transition-transform ease-in-out duration-450 hover:scale-[1.02]">
+        <div className="group relative overflow-hidden rounded-xl w-full md:min-w-[180px] md:max-w-[220px] bg-gradient-to-br from-blue-400 to-indigo-500 shadow-sm transition-transform ease-in-out duration-450 hover:scale-[1.02]">
 
             {/* Decorative Elements */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16 group-hover:scale-110 transition-transform duration-500"></div>

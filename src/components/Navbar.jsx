@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { FiSearch, FiChevronDown, FiUser, FiLogOut } from 'react-icons/fi';
+import { FiSearch, FiChevronDown, FiUser, FiLogOut, FiMenu } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import Logo from './Logo';
 import { financialYears } from '../utils/constant';
 
-const Navbar = () => {
+const Navbar = ({ toggleSidebar }) => {
 
     const userName = localStorage.getItem('username');
     const financialYear = localStorage.getItem('financialYear');
@@ -31,16 +31,25 @@ const Navbar = () => {
     };
 
     return (
-        <div className="bg-white/80 backdrop-blur-md border-b border-blue-100 shadow-sm sticky top-0 z-40">
+        <div className="bg-white/80 backdrop-blur-md border-b border-blue-100 shadow-sm sticky top-0 z-40 w-screen">
             <div className="flex items-center justify-between px-6 py-3">
 
                 {/* Left - Logo + Search bar in same row */}
                 <div className="flex flex-1 items-center">
-                    <Link to="/" className="flex items-center w-[280px] min-w-[250px] max-w-[300px]">
+
+                    <button
+                        className="md:hidden mr-3 text-gray-600"
+                        onClick={toggleSidebar}
+                    >
+                        <FiMenu className="w-6 h-6" />
+                    </button>
+
+                    <Link to="/accounting" className="flex items-center w-[280px] min-w-[250px] max-w-[300px]">
                         <Logo width={10} height={10} />
                     </Link>
 
-                    <div className="flex-1 max-w-xl">
+                    {/* Search bar - Hidden on mobile */}
+                    <div className="hidden md:flex flex-1 max-w-xl mx-4">
                         <div className="relative w-full">
                             <div className="absolute inset-0 bg-gradient-to-r from-blue-100/20 to-blue-200/20 rounded-lg blur-sm"></div>
                             <div className="relative bg-white/70 backdrop-blur-xl border border-blue-100 rounded-lg shadow-sm">
@@ -60,7 +69,7 @@ const Navbar = () => {
                 </div>
 
                 {/* Right - User Info and Financial Year */}
-                <div className="flex items-center space-x-4">
+                <div className="hidden md:flex items-center space-x-2 sm:space-x-4">
                     <div className="relative">
                         <select
                             value={selectedYear}
@@ -106,8 +115,9 @@ const Navbar = () => {
                         )}
                     </div>
                 </div>
+
             </div>
-        </div>
+        </div >
     );
 };
 
