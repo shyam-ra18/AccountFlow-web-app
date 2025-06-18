@@ -1,6 +1,7 @@
 import { FaApple, FaFacebookF, FaGithub, FaGoogle, FaLinkedinIn, FaTwitter } from "react-icons/fa";
-import { FiAlertCircle, FiClock, FiDollarSign, FiFileText, FiTrendingUp } from "react-icons/fi";
+import { FiAlertCircle, FiClock, FiFileText, FiTrendingUp } from "react-icons/fi";
 import { HiOutlineClipboardCheck, HiOutlineCurrencyRupee, HiOutlineDocumentText, HiOutlineUserAdd } from "react-icons/hi";
+import { LuIndianRupee } from "react-icons/lu";
 
 export const financialYears = [
     '2024-25',
@@ -23,7 +24,7 @@ export const cardData = [
         title: "Total Revenue",
         value: "₹12,45,680",
         subtitle: "This month",
-        icon: FiDollarSign,
+        icon: LuIndianRupee,
         trend: { value: "+12.5%", isPositive: true },
     },
     {
