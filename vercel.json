@@ -1,0 +1,12 @@
+{
+    "rewrites": [
+        {
+            "source": "/accounting/(.*)",
+            "destination": "/accounting/index.html"
+        },
+        {
+            "source": "/accounting",
+            "destination": "/accounting/index.html"
+        }
+    ]
+}
