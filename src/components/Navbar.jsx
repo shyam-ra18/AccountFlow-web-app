@@ -44,7 +44,7 @@ const Navbar = ({ toggleSidebar }) => {
                         <FiMenu className="w-6 h-6" />
                     </button>
 
-                    <Link to="/accounting" className="flex items-center w-[280px] min-w-[250px] max-w-[300px]">
+                    <Link to="/" className="flex items-center w-[280px] min-w-[250px] max-w-[300px]">
                         <Logo width={10} height={10} />
                     </Link>
 

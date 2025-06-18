@@ -92,7 +92,7 @@ const Sidebar = ({ closeSidebar }) => {
                     <SidebarItem to="/dashboard/notifications" label="Notifications" icon={<MdNotifications />} />
                     <SidebarItem to="/dashboard/settings" label="Settings" icon={<MdSettings />} />
                     <SidebarItem to="/dashboard/discounts" label="Discount Codes" icon={<MdLocalOffer />} />
-                    <SidebarItem to="/accounting" label="Logout" icon={<MdLogout />} />
+                    <SidebarItem to="/" label="Logout" icon={<MdLogout />} />
                 </SidebarMenu>
             </nav>
 

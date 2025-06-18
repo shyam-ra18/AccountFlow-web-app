@@ -1,8 +1,0 @@
-{
-    "rewrites": [
-        {
-            "source": "/accounting(/.*)?",
-            "destination": "/index.html"
-        }
-    ]
-}
